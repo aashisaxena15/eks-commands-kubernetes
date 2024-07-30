@@ -1,0 +1,28 @@
+1  curl "https://awscli.amazonaws.com/awscli-exe-linux-x86_64.zip" -o "awscliv2.zip"
+    2  unzip awscliv2.zip
+    3  sudo ./aws/install
+    4  sudo apt install unzip
+    5  sudo ./aws/install
+    6  curl "https://awscli.amazonaws.com/awscli-exe-linux-x86_64.zip" -o "awscliv2.zip"
+    7  aws configure
+    8  sudo apt install awscli
+    9  curl -o awscliv2.sig https://awscli.amazonaws.com/awscli-exe-linux-x86_64.zip.sig
+   10  aws configure
+   11  sudo apt install awscli
+   12  aws --version
+   13  unzip awscliv2.zip
+   14  sudo ./aws/install
+   15  aws --version
+   16  aws configure
+   17  curl -LO "https://dl.k8s.io/release/$(curl -L -s https://dl.k8s.io/release/stable.txt)/bin/linux/amd64/kubectl"
+   18  curl -LO "https://dl.k8s.io/$(curl -L -s https://dl.k8s.io/release/stable.txt)/bin/linux/amd64/kubectl.sha256"
+   19  echo "$(cat kubectl.sha256)  kubectl" | sha256sum --check
+   20  sudo install -o root -g root -m 0755 kubectl /usr/local/bin/kubectl
+   21  kubectl
+   22  aws eks --region eu-north-1 describe-cluster --name kubernetes-cluster --query cluster.status
+   23  aws eks --region eu-north-1 update-kubeconfig --name kubernetes-cluster
+   24  pwd
+   25  kubectl get svc
+   26  kubectl get nodes --watch
+   27  kubectl get nodes
+   28  history
