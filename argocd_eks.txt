@@ -1,0 +1,23 @@
+installed argodc on eks cluster. use the following commands and make the iam roles for cluster and node group properly 
+
+1  aws eks update-kubeconfig --region us-east-1 --name test-aashi2
+    2  kubectl get svc
+    3  kubectl create namespace argocd
+    4  kubectl apply -n argocd -f https://raw.githubusercontent.com/argoproj/argo-cd/stable/manifests/install.yaml
+    5  kubectl get svc
+    6  kubectl get pods
+    7  kubectl get pods -n argocd
+    8  kubectl get svc -n argocd
+    9  kubectl get all -n argocd
+   10  kubectl patch svc argocd-server -n argocd -p '{"spec": {"type": "LoadBalancer"}}'
+   11  kubectl port-forward svc/argocd-server -n argocd 8080:443
+   12  kubectl get all -n argocd
+   13  argocd admin initial-password -n argocd
+   14  kubectl get secret argocd-initial-admin-secret -n argocd -o jsonpath="{.data.password}" | base64 --decode
+   15  VERSION=$(curl --silent "https://api.github.com/repos/argoproj/argo-cd/releases/latest" | grep '"tag_name"' | sed -E 's/.*"([^"]+)".*/\1/')
+   16  curl -sSL -o argocd-linux-amd64 "https://github.com/argoproj/argo-cd/releases/download/${VERSION}/argocd-linux-amd64"
+   17  chmod +x argocd-linux-amd64
+   18  sudo mv argocd-linux-amd64 /usr/local/bin/argocd
+   19  argocd
+   20  argocd app get guestbook
+   21  history
